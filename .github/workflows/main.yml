@@ -25,5 +25,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: forex-results
-          path: output/
+          path: updated-prices
           if-no-files-found: warn
