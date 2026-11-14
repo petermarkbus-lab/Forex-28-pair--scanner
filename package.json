@@ -1,0 +1,1 @@
+{"name":"forex-28-updater","private":true,"type":"module","scripts":{"update":"node update.mjs"},"dependencies":{"dukascopy-node":"*"}}
