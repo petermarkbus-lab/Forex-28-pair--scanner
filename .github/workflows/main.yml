@@ -1,0 +1,29 @@
+name: Forex 28 Pair Updater
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install
+      - name: Update Forex data
+        run: node update.mjs
+      - name: Save results
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forex-results
+          path: output/
+          if-no-files-found: warn
