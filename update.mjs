@@ -1,7 +1,7 @@
 import { getHistoricalRates } from 'dukascopy-node';
 import { mkdir, writeFile } from 'node:fs/promises';
 const pairs = ['AUDCAD','AUDCHF','AUDJPY','AUDNZD','AUDUSD','CADCHF','CADJPY','CHFJPY','EURAUD','EURCAD','EURCHF','EURGBP','EURJPY','EURNZD','EURUSD','GBPAUD','GBPCAD','GBPCHF','GBPJPY','GBPNZD','GBPUSD','NZDCAD','NZDCHF','NZDJPY','NZDUSD','USDCAD','USDCHF','USDJPY'];
-const from = process.env.FROM_DATE || '2026-10-23';
+const from = process.env.FROM_DATE ||'2018-01-01';
 const to = new Date(); to.setUTCHours(0,0,0,0); // exclusive end: today; omit today's unfinished candle
 const until = to.toISOString().slice(0,10);
 await mkdir('updated-prices',{recursive:true});
